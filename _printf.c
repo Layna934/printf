@@ -12,7 +12,7 @@
 
 int general(void)
 {
-	write(1, "(null)", 6);
+	write(1, "(null)\n", 6);
 	return (strlen("(null"));
 }
 
