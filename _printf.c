@@ -3,6 +3,13 @@
 #include "stdarg.h"
 #include "unistd.h"
 
+/**
+  *switchchar - char case
+  *@args: argument1
+  *@count: argujment2
+  *
+  *Return: 1
+  */
 
 int switchchar(va_list args, int *count)
 {
@@ -12,6 +19,13 @@ int switchchar(va_list args, int *count)
 	(*count)++;
 	return (1);
 }
+/**
+  *switchstr - string case
+  *@args: argument1
+  *@count: argument2
+  *
+  *Return: length
+  */
 
 int switchstr(va_list args, int *count)
 {
@@ -26,6 +40,12 @@ int switchstr(va_list args, int *count)
 	(*count) += length;
 	return (length);
 }
+/**
+  *switchmod - switches mod
+  *@count: argument
+  *
+  *Return: 1\
+  */
 
 int switchmod(int *count)
 {
