@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 
 	if (format == NULL)
-		return (-1);
+		return (NULL);
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -67,12 +67,12 @@ int _printf(const char *format, ...)
 						count += switchstr(args);	}
 					break;
 				case '%':	{
-						putchar('%');
+						write(1, '%', 1);
 						count++;	}
 					break;
 				default:	{
-						putchar('%');
-						putchar(*format);
+						write(1, '%', 1);
+						write(1, *format, 1);
 						count += 2;	}
 						break;
 			}
