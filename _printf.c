@@ -44,7 +44,7 @@ int switchstr(va_list args, int *count)
   *switchmod - switches mod
   *@count: argument
   *
-  *Return: 1\
+  *Return: 1
   */
 
 int switchmod(int *count)
