@@ -5,7 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+/**
+  *switchint - prints integers
+  *@args: unknown arguments
+  *
+  *Return: 1
+  */
 int switchint(va_list args)
 {
 	int d = va_arg(args, int);
