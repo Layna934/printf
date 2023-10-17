@@ -3,6 +3,7 @@
 #include "stdarg.h"
 #include "unistd.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
 * general - prints %
@@ -11,8 +12,8 @@
 
 int general(void)
 {
-	write(1, "%", 1);
-	return (1);
+	write(1, "(null)", 6);
+	return (6);
 }
 
 /**
@@ -84,8 +85,13 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			if (strlen(format) == 1)
-				count += general(void);
+			format++;
+			if (*format == '\0')
+			{	count += general();
+			
+			}
+			else
+			{
 			format++;
 			switch (*format)
 			{
@@ -104,6 +110,7 @@ int _printf(const char *format, ...)
 						write(1, format, 1);
 						count += 2;	}
 					break;
+			}
 			}
 		}
 		else
