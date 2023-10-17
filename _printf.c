@@ -16,7 +16,7 @@ int switchint(va_list args)
 {
 	int d = va_arg(args, int);
 
-	putchar(d);
+	putchar(d
 	return (1);
 }
 
@@ -120,7 +120,8 @@ int _printf(const char *format, ...)
 						count++;	}
 					break;
 				case 'd':	{
-						count += switchint(args);
+						count += switchint(args);	}
+					break;	
 				default:	{
 						write(1, "%", 1);
 						write(1, format, 1);
