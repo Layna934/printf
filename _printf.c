@@ -120,7 +120,7 @@ int _printf(const char *format, ...)
 						count++;	}
 					break;
 				case 'd':	{
-						count +=
+						count += switchint(args);
 				default:	{
 						write(1, "%", 1);
 						write(1, format, 1);
