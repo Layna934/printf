@@ -6,7 +6,6 @@
 /**
   *switchchar - char case
   *@args: argument1
-  *@count: argujment2
   *
   *Return: 1
   */
@@ -21,7 +20,6 @@ int switchchar(va_list args)
 /**
   *switchstr - string case
   *@args: argument1
-  *@count: argument2
   *
   *Return: length
   */
@@ -38,13 +36,6 @@ int switchstr(va_list args)
 	write(1, str, length);
 	return (length);
 }
-/**
-  *switchmod - switches mod
-  *@count: argument
-  *
-  *Return: 1
-  */
-
 
 /**
   *_printf - produces output according to a format
