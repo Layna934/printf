@@ -3,6 +3,36 @@
 #include "stdarg.h"
 #include "unistd.h"
 
+
+int switchchar(va_list args, int *count)
+{
+	char c = va_arg(args, int);
+
+	write(1, &c, 1);
+	(*count)++;
+	return (1);
+}
+
+int switchstr(va_list args, int *count)
+{
+	const char *str = va_arg(args, char *);
+	int length = 0;
+
+	while (str[length] != '\0')
+	{
+		length++;
+	}
+	write(1, str, length);
+	(*count) += length;
+	return (length);
+}
+
+int switchmod(va_list args, int *count)
+{
+	write (1, "%", 1);
+	(*count)++;
+}
+
 /**
   *_printf - produces output according to a format
   *@format: format string
