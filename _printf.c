@@ -60,28 +60,20 @@ int _printf(const char *format, ...)
 			format++;
 			switch (*format)
 			{
-				case 'c':
-					{
-						count += switchchar(args);
-					}
+				case 'c':	{
+						count += switchchar(args);	}
 					break;
-				case 's':
-					{
-						count += switchstr(args);
-					}
+				case 's':	{
+						count += switchstr(args);	}
 					break;
-				case '%':
-					{
+				case '%':	{
 						write(1, "%", 1);
-						count++;
-					}
+						count++;	}
 					break;
-				default:
-					{
+				default:	{
 						write(1, "%", 1);
 						write(1, format, 1);
-						count++;
-					}
+						count++;	}
 					break;
 			}
 		}
