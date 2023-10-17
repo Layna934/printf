@@ -14,18 +14,19 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
-	
+
 	va_start(args, format);
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
 			format++;
-			switch(*format)
+			switch (*format)
 			{
 				case 'c':
 					{
 						char c = va_arg(args, int);
+
 						write(1, &c, 1);
 						count++;
 					}
@@ -34,6 +35,7 @@ int _printf(const char *format, ...)
 					{
 						const char *str = va_arg(args, char *);
 						int length = 0;
+
 						while (str[length] != '\0')
 						{
 							length++;
@@ -66,4 +68,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	return (count);
-}			
+}
