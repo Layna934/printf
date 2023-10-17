@@ -16,7 +16,7 @@ int switchint(va_list args)
 {
 	int d = va_arg(args, int);
 
-	putchar(d
+	putchar(
 	return (1);
 }
 
