@@ -5,6 +5,17 @@
 #include <stdlib.h>
 
 /**
+* general - prints %
+* Return: Nothing
+*/
+
+int general(void)
+{
+	write(1, "%", 1);
+	return (1);
+}
+
+/**
   *switchchar - char case
   *@args: argument1
   *
@@ -18,6 +29,7 @@ int switchchar(va_list args)
 	write(1, &c, 1);
 	return (1);
 }
+
 /**
   *switchstr - string case
   *@args: argument1
@@ -66,13 +78,14 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(args, format);
-
 	if (format == NULL)
 		return (-1);
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
+			if (strlen(format) == 1)
+				count += general(void);
 			format++;
 			switch (*format)
 			{
