@@ -8,7 +8,12 @@
 
 int switchint(va_list args)
 {
-	va_args(
+	int d = va_arg(args, int);
+
+	putchar(d);
+	return (1);
+}
+
 /**
 * general - prints %
 * Return: Nothing
