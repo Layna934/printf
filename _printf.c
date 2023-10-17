@@ -54,23 +54,16 @@ int _printf(const char *format, ...)
 			format++;
 			switch (*format)
 			{
-				case 'c':
-					{
-						count += switchchar(args, &count);
-					}
+				case 'c':	{
+						count += switchchar(args, &count);	}
 					break;
-				case 's':
-					{
-						count += switchstr(args, &count);
-					}
+				case 's':	{
+						count += switchstr(args, &count);	}
 					break;
-				case '%':
-					{
-						count += switchmod(&count);
-					}
+				case '%':	{
+						count += switchmod(&count);	}
 					break;
-				default:
-					{
+				default:	{
 						write(1, "%", 1);
 						write(1, format, 1);
 						count++;
