@@ -11,12 +11,11 @@
   *Return: 1
   */
 
-int switchchar(va_list args, int *count)
+int switchchar(va_list args)
 {
 	char c = va_arg(args, int);
 
 	write(1, &c, 1);
-	(*count)++;
 	return (1);
 }
 /**
@@ -27,9 +26,9 @@ int switchchar(va_list args, int *count)
   *Return: length
   */
 
-int switchstr(va_list args, int *count)
+int switchstr(va_list args)
 {
-	const char *str = va_arg(args, char *);
+	const char *str = va_arg(args,  const char *);
 	int length = 0;
 
 	while (str[length] != '\0')
@@ -37,7 +36,6 @@ int switchstr(va_list args, int *count)
 		length++;
 	}
 	write(1, str, length);
-	(*count) += length;
 	return (length);
 }
 /**
@@ -47,12 +45,6 @@ int switchstr(va_list args, int *count)
   *Return: 1
   */
 
-int switchmod(int *count)
-{
-	write(1, "%", 1);
-	(*count)++;
-	return (1);
-}
 
 /**
   *_printf - produces output according to a format
@@ -75,13 +67,14 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':	{
-						count += switchchar(args, &count);	}
+						count += switchchar(args);	}
 					break;
 				case 's':	{
-						count += switchstr(args, &count);	}
+						count += switchstr(args);	}
 					break;
 				case '%':	{
-						count += switchmod(&count);	}
+						write(1, "%", 1);
+						count++;	}
 					break;
 				default:	{
 						write(1, "%", 1);
