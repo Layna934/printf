@@ -56,6 +56,7 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%')
+		{
 			format++;
 			switch (*format)
 			{
@@ -76,6 +77,7 @@ int _printf(const char *format, ...)
 					}
 					break;
 			}
+		}
 		else
 		{
 			write(1, format, 1);
