@@ -11,6 +11,7 @@
   *
   *Return: 1
   */
+
 int switchint(va_list args)
 {
 	int d = va_arg(args, int);
@@ -118,6 +119,8 @@ int _printf(const char *format, ...)
 						write(1, "%", 1);
 						count++;	}
 					break;
+				case 'd':	{
+						count +=
 				default:	{
 						write(1, "%", 1);
 						write(1, format, 1);
