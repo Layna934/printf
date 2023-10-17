@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 
 	if (format == NULL)
-		return (NULL);
+		return (-1);
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -60,26 +60,34 @@ int _printf(const char *format, ...)
 			format++;
 			switch (*format)
 			{
-				case 'c':	{
-						count += switchchar(args);	}
+				case 'c':
+					{
+						count += switchchar(args);
+					}
 					break;
-				case 's':	{
-						count += switchstr(args);	}
+				case 's':
+					{
+						count += switchstr(args);
+					}
 					break;
-				case '%':	{
-						write(1, '%', 1);
-						count++;	}
+				case '%':
+					{
+						write(1, "%", 1);
+						count++;
+					}
 					break;
-				default:	{
-						write(1, '%', 1);
-						write(1, *format, 1);
-						count += 2;	}
-						break;
+				default:
+					{
+						write(1, "%", 1);
+						write(1, format, 1);
+						count++;
+					}
+					break;
 			}
 		}
 		else
 		{
-			putchar(*format);
+			write(1, format, 1);
 			count++;
 		}
 		format++;
