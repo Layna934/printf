@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "stdarg.h"
 #include "unistd.h"
+#include <stdlib.h>
 
 /**
   *switchchar - char case
@@ -27,15 +28,30 @@ int switchchar(va_list args)
 int switchstr(va_list args)
 {
 	const char *str = va_arg(args,  const char *);
-	int length = 0;
+	int i, length = 0;
+	char *str_copy = NULL;
 
+	if (str == NULL)
+		str = "(null)";
 	while (str[length] != '\0')
 	{
 		length++;
 	}
-	write(1, str, length);
+	str_copy = (char *)malloc(length + 1);
+	if (str_copy == NULL)
+	{
+		return (-1);
+	}
+	for (i = 0; i < length; i++)
+	{
+		str_copy[i] = str[i];
+	}
+	str_copy[length] = '\0';
+	write(1, str_copy, length);
+	free(str_copy);
 	return (length);
 }
+
 
 /**
   *_printf - produces output according to a format
