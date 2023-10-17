@@ -5,6 +5,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+int switchint(va_list args)
+{
+	va_args(
 /**
 * general - prints %
 * Return: Nothing
