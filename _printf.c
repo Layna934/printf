@@ -27,13 +27,13 @@ int switchint(va_list args)
 	}
 	else if (d == 0)
 	{
-		buffer[len] = '0';
+		buffer[len++] = '0';
 	}
 	else
 	{
 		while (d > 0)
 		{
-			buffer[len] = '0' + (d % 10);
+			buffer[len++] = '0' + (d % 10);
 			d /= 10;
 		}
 	}
