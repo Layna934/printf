@@ -15,9 +15,34 @@
 int switchint(va_list args)
 {
 	int d = va_arg(args, int);
+	int len = 0;
+	int intcount = 0, l;
+	int buffer[BUFF_SIZE];
 
-	putcha
-	return (1);
+	if (d < 0)
+	{
+		write(1, "-", 1);
+		d = -d;
+		len++;
+	}
+	else if (d == 0)
+	{
+		buffer[len] = '0';
+	}
+	else
+	{
+		while (d > 0)
+		{
+			buffer[len] = '0' + (d % 10);
+			d /= 10;
+		}
+	}
+	for (l = len -1; l >= 0; l--)
+	{
+		write(1, &buffer[l], 1);
+		intcount++;
+	}
+	return (intcount);
 }
 
 /**
@@ -120,6 +145,9 @@ int _printf(const char *format, ...)
 						count++;	}
 					break;
 				case 'd':	{
+						count += switchint(args);	}
+					break;
+				case 'i':	{
 						count += switchint(args);	}
 					break;	
 				default:	{
